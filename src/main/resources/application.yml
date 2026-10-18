@@ -1,0 +1,10 @@
+server:
+  port: ${SERVER_PORT:8084}
+
+spring:
+  application:
+    name: rabbit-admin
+  rabbitmq:
+    addresses: ${RABBITMQ_ADDRESSES:localhost:5672,localhost:5673}
+    username: ${RABBITMQ_USER:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
