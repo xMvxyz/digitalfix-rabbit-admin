@@ -8,3 +8,10 @@ spring:
     addresses: ${RABBITMQ_ADDRESSES:localhost:5672,localhost:5673}
     username: ${RABBITMQ_USER:guest}
     password: ${RABBITMQ_PASSWORD:guest}
+
+app:
+  security:
+    admin:
+      username: ${RABBIT_ADMIN_USER:admin}
+      # Obligatoria via entorno: el servicio no inicia sin credencial configurada
+      password: ${RABBIT_ADMIN_PASSWORD}
