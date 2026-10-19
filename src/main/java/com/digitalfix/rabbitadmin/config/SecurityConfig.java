@@ -42,6 +42,12 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
+        if (adminUsername == null || adminUsername.isBlank()) {
+            throw new IllegalStateException("RABBIT_ADMIN_USER no puede estar vacio");
+        }
+        if (adminPassword == null || adminPassword.isBlank()) {
+            throw new IllegalStateException("RABBIT_ADMIN_PASSWORD no puede estar vacia: configura las credenciales via variables de entorno");
+        }
         UserDetails admin = User.withUsername(adminUsername)
                 .password(passwordEncoder.encode(adminPassword))
                 .roles("ADMIN")
